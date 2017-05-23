@@ -13,6 +13,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @EnableAutoConfiguration
 public class Program extends SpringBootServletInitializer {
 
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder applicationBuilder){
         return applicationBuilder.sources(Program.class);

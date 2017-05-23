@@ -41,6 +41,9 @@ public class Book {
     @Column(name = "price", nullable = false)
     private float price;
 
+    @Column(name = "image")
+    private String image;
+
     public Book(String isbn, String title, String author, String format, int pages, String publisher, int stock, float price) {
         this.isbn = isbn;
         this.title = title;
@@ -105,6 +108,12 @@ public class Book {
     }
     public void setPrice(float price) {
         this.price = price;
+    }
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override

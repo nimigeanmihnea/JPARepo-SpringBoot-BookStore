@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,7 +29,16 @@ public class SecureLogin extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.csrf().disable();
         httpSecurity.authorizeRequests().antMatchers("/", "/resources/**", "/templates/**", "/static/**",
-                "/css/**", "/js/**").permitAll();
+                "/css/**", "/js/**").permitAll()
+                .antMatchers("/admin/*","/admin").hasRole("ADMIN")
+                .antMatchers("/login").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().defaultSuccessUrl("/home")
+                .loginPage("/login").usernameParameter("user").passwordParameter("pass").permitAll()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll()
+                .and().exceptionHandling().accessDeniedPage("/403");
     }
 
     public PasswordEncoder passwordEncoder(){

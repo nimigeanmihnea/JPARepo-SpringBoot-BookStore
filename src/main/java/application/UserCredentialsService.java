@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserCredentialsService implements UserDetailsService{
 
+    @Autowired
     private final UserRepository userRepository;
 
     @Autowired
@@ -26,6 +27,7 @@ public class UserCredentialsService implements UserDetailsService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
             User user = this.userRepository.findByUsername(username);
+            System.out.println(user.toString());
             user.isEnabled();
             return new User(user.getUsername(), user.getPassword(), user.getRole());
         }catch (UsernameNotFoundException ex){
