@@ -44,6 +44,10 @@ a {
 	text-decoration: none;
 }
 
+b{
+	color: white;
+}
+
 a:hover {
 	color: #000;
 }

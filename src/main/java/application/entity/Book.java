@@ -26,6 +26,9 @@ public class Book {
     @Column(name = "author", nullable = false)
     private String author;
 
+    @Column(name = "genre", nullable = false)
+    private String genre;
+
     @Column(name = "format", nullable = false)
     private String format;
 
@@ -44,10 +47,11 @@ public class Book {
     @Column(name = "image")
     private String image;
 
-    public Book(String isbn, String title, String author, String format, int pages, String publisher, int stock, float price) {
+    public Book(String isbn, String title, String author, String genre, String format, int pages, String publisher, int stock, float price) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
+        this.genre = genre;
         this.format = format;
         this.pages = pages;
         this.publisher = publisher;
@@ -115,6 +119,13 @@ public class Book {
     public void setImage(String image) {
         this.image = image;
     }
+    public String getGenre() {
+        return genre;
+    }
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
 
     @Override
     public String toString() {
