@@ -1,6 +1,7 @@
 package application.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,13 +23,23 @@ public class OnlineOrder {
     @OneToOne
     private User user;
 
-    @OneToMany
-    private List<Book> books;
+    @OneToOne
+    private Book book;
 
-    public OnlineOrder(Date date, User user, List<Book> books) {
+    @OneToOne
+    private Stationery stationery;
+
+    @OneToOne
+    private Tea tea;
+
+    public OnlineOrder(){}
+
+    public OnlineOrder(Date date, User user, Book book, Stationery stationery, Tea tea) {
         this.date = date;
         this.user = user;
-        this.books = books;
+        this.book = book;
+        this.stationery = stationery;
+        this.tea = tea;
     }
 
     public long getId() {
@@ -49,10 +60,28 @@ public class OnlineOrder {
     public void setUser(User user) {
         this.user = user;
     }
-    public List<Book> getBooks() {
-        return books;
+
+    public Book getBook() {
+        return book;
     }
-    public void setBooks(List<Book> books) {
-        this.books = books;
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Stationery getStationery() {
+        return stationery;
+    }
+
+    public void setStationery(Stationery stationery) {
+        this.stationery = stationery;
+    }
+
+    public Tea getTea() {
+        return tea;
+    }
+
+    public void setTea(Tea tea) {
+        this.tea = tea;
     }
 }

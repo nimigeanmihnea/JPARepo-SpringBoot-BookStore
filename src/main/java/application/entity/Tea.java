@@ -35,6 +35,7 @@ public class Tea {
     @Column(name = "image")
     private String image;
 
+    public Tea(){}
     public Tea(String barcode, String type, String name, int stock, float price, String image) {
         this.barcode = barcode;
         this.type = type;
@@ -89,10 +90,8 @@ public class Tea {
 
     @Override
     public String toString() {
-        return "Tea{" +
-                "name='" + name + '\'' +
-                ", stock=" + stock +
-                ", price=" + price +
-                '}';
+        return "Barcode='" + barcode + '\'' +
+                ", Type='" + type + '\'' +
+                ", Price=" + price ;
     }
 }

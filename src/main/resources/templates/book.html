@@ -1,28 +1,14 @@
-
 <!DOCTYPE html>
-<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Hydrogen &mdash; A free HTML5 Template by FREEHTML5.CO</title>
+    <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
     <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
     <meta name="author" content="FREEHTML5.CO" />
 
-    <!--
-      //////////////////////////////////////////////////////
-
-      FREE HTML5 TEMPLATE
-      DESIGNED & DEVELOPED by FREEHTML5.CO
-
-      Website: 		http://freehtml5.co/
-      Email: 			info@freehtml5.co
-      Twitter: 		http://twitter.com/fh5co
-      Facebook: 		https://www.facebook.com/fh5co
-
-      //////////////////////////////////////////////////////
-       -->
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content=""/>
@@ -44,6 +30,9 @@
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" th:href="@{css/table.css}"/>
+    <link rel="stylesheet" th:href="@{/css/search_component.css}" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" th:href="@{/css/search_default.css}" type="text/css" href="css/default.css" />
     <!-- Icomoon Icon Fonts-->
     <link rel="stylesheet" href="css/icomoon.css"/>
     <!-- Magnific Popup -->
@@ -64,248 +53,109 @@
 
 <div id="fh5co-offcanvass">
     <a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
-    <h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Hydrogen</a></h1>
+    <h1 class="fh5co-logo"><a class="navbar-brand" href="home.html">Book Store</a></h1>
     <ul>
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li class="active"><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/book}">Books</a></li>
+        <li><a th:href="@{/stationery}">Stationery</a></li>
+        <li><a th:href="@{/tea}">Tea</a></li>
+        <li><a sec:authorize="hasRole('EMPLOYEE')" th:href="@{/employee/add_book}">Add book</a></li>
+        <li><a sec:authorize="hasRole('EMPLOYEE')" th:href="@{/employee/add_st}">Add stationery</a></li>
+        <li><a sec:authorize="hasRole('EMPLOYEE')" th:href="@{/employee/add_tea}">Add tea</a></li>
+        <li><a sec:authorize="hasRole('EMPLOYEE')" th:href="@{/employee/view}">View orders</a></li>
+        <li><a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/view}">View users</a></li>
+        <li><a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/add}">Add user</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
     </ul>
-    <h3 class="fh5co-lead">Connect with us</h3>
-    <p class="fh5co-social-icons">
-        <a href="#"><i class="icon-twitter"></i></a>
-        <a href="#"><i class="icon-facebook"></i></a>
-        <a href="#"><i class="icon-instagram"></i></a>
-        <a href="#"><i class="icon-dribbble"></i></a>
-        <a href="#"><i class="icon-youtube"></i></a>
-    </p>
 </div>
 <header id="fh5co-header" role="banner">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-                <a class="navbar-brand" href="index.html">Hydrogen</a>
+                <a class="navbar-brand" href="home.html">Book Store</a>
             </div>
         </div>
     </div>
+    <div class="column">
+        <div id="sb-search" class="sb-search">
+            <form th:action="@{/book}" th:method="post">
+                <input class="sb-search-input" placeholder="Search..." type="text" value="" name="search" id="search"/>
+                <input class="sb-search-submit" type="submit" value=""/>
+                <span class="sb-icon-search"></span>
+            </form>
+        </div>
+    </div>
+
 </header>
 <!-- END .header -->
 
-
-<div id="fh5co-main">
-    <div class="container">
-
-        <div class="row">
-
-            <div id="fh5co-board" >
-
-                <div class="item">
-                    <div class="animate-box">
-                        <a href="images/26102.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
-                            <img src="images/26102.jpg" alt="Free HTML5 Bootstrap template"/></a>
-                    </div>
-                    <div class="fh5co-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?</div>
-                </div>
-                <div class="item">
-                    <div class="animate-box">
-                        <a href="images/26102.jpg" class="image-popup fh5co-board-img"><img src="images/26102.jpg" alt="Free HTML5 Bootstrap template"/></a>
-                        <div class="fh5co-desc">Veniam voluptatum voluptas tempora debitis harum totam vitae hic quos.</div>
-                    </div>
-                </div>
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_3.jpg" class="image-popup fh5co-board-img"><img src="images/img_3.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Optio commodi quod vitae, vel, officiis similique quaerat odit dicta.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_4.jpg" class="image-popup fh5co-board-img"><img src="images/img_4.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Dolore itaque deserunt sit, at exercitationem delectus, consequuntur quaerat sapiente.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_5.jpg" class="image-popup fh5co-board-img"><img src="images/img_5.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Tempora distinctio inventore, nisi excepturi pariatur tempore sit quasi animi.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_6.jpg" class="image-popup fh5co-board-img"><img src="images/img_6.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Sequi, eaque suscipit accusamus. Necessitatibus libero, unde a nesciunt repellendus!</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_7.jpg" class="image-popup fh5co-board-img"><img src="images/img_7.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Necessitatibus distinctio eos ipsam cum hic temporibus assumenda deleniti, soluta.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_8.jpg" class="image-popup fh5co-board-img"><img src="images/img_8.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Debitis voluptatum est error nulla voluptate eum maiores animi quasi?</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_9.jpg" class="image-popup fh5co-board-img"><img src="images/img_9.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Maxime qui eius quisquam quidem quos unde consectetur accusamus adipisci!</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_21.jpg" class="image-popup fh5co-board-img"><img src="images/img_21.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Deleniti aliquid, accusantium, consectetur harum eligendi vitae quaerat reiciendis sit?</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_10.jpg" class="image-popup fh5co-board-img"><img src="images/img_10.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Incidunt, eaque et. Et odio excepturi, eveniet facilis explicabo assumenda.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_11.jpg" class="image-popup fh5co-board-img"><img src="images/img_11.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Laborum dolores nihil voluptates quas alias distinctio fugiat tempora sit.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_12.jpg" class="image-popup fh5co-board-img"><img src="images/img_12.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Sit, quis nulla amet numquam fugit, in reiciendis laboriosam dolor.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_13.jpg" class="image-popup fh5co-board-img"><img src="images/img_13.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Possimus explicabo voluptatem natus nisi similique ipsa repudiandae? Quibusdam, fuga.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_14.jpg" class="image-popup fh5co-board-img"><img src="images/img_14.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Magni repellendus iusto mollitia, quibusdam facilis incidunt. Sunt, repellat, voluptatem.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_15.jpg" class="image-popup fh5co-board-img"><img src="images/img_15.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Unde iure rerum cupiditate explicabo quam aut vel earum numquam.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_16.jpg" class="image-popup fh5co-board-img"><img src="images/img_16.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Qui nisi error dolorum dolor delectus, alias doloremque perspiciatis nemo.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_18.jpg" class="image-popup fh5co-board-img"><img src="images/img_18.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Neque porro vero cumque natus nam voluptatibus, ratione, commodi labore.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_17.jpg" class="image-popup fh5co-board-img"><img src="images/img_17.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Quisquam quia totam, sit ea maxime sint sed excepturi quod.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_19.jpg" class="image-popup fh5co-board-img"><img src="images/img_19.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Nesciunt non iste ex nemo sapiente eum, provident nam corporis.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_20.jpg" class="image-popup fh5co-board-img"><img src="images/img_20.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Harum repellat labore est cum ipsa, nesciunt neque mollitia adipisci?</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_22.jpg" class="image-popup fh5co-board-img"><img src="images/img_22.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Quos repellendus repudiandae debitis reprehenderit cupiditate cumque accusamus exercitationem, harum.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_23.jpg" class="image-popup fh5co-board-img"><img src="images/img_23.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Sunt numquam itaque delectus, dignissimos dolorem obcaecati vel, atque eos.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_24.jpg" class="image-popup fh5co-board-img"><img src="images/img_24.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Adipisci consequuntur ipsa fugit perspiciatis eligendi. Omnis blanditiis, totam placeat.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_25.jpg" class="image-popup fh5co-board-img"><img src="images/img_25.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Quos repellendus repudiandae debitis reprehenderit cupiditate cumque accusamus exercitationem, harum.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_26.jpg" class="image-popup fh5co-board-img"><img src="images/img_26.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Sunt numquam itaque delectus, dignissimos dolorem obcaecati vel, atque eos.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_27.jpg" class="image-popup fh5co-board-img"><img src="images/img_27.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Adipisci consequuntur ipsa fugit perspiciatis eligendi. Omnis blanditiis, totam placeat.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_28.jpg" class="image-popup fh5co-board-img"><img src="images/img_28.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Adipisci consequuntur ipsa fugit perspiciatis eligendi. Omnis blanditiis, totam placeat.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_29.jpg" class="image-popup fh5co-board-img"><img src="images/img_29.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Adipisci consequuntur ipsa fugit perspiciatis eligendi. Omnis blanditiis, totam placeat.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="item">-->
-                    <!--<div class="animate-box">-->
-                        <!--<a href="images/img_30.jpg" class="image-popup fh5co-board-img"><img src="images/img_30.jpg" alt="Free HTML5 Bootstrap template"></a>-->
-                        <!--<div class="fh5co-desc">Adipisci consequuntur ipsa fugit perspiciatis eligendi. Omnis blanditiis, totam placeat.</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            </div>
-        </div>
+<form th:action="@{/home}" th:method="get">
+    <div class="table-title">
+        <h1>Books</h1>
     </div>
-</div>
+    <table class="table-fill">
+        <thead>
+        <tr>
+            <th class="text-left">Title</th>
+            <th class="text-left">Author</th>
+            <th class="text-left">Details</th>
+            <th class="text-left">Book</th>
+            <th sec:authorize="hasRole('ROLE_USER')" class="text-left">Buy</th>
+            <th sec:authorize="hasRole('ROLE_EMPLOYEE')" class="text-left">Update</th>
+            <th sec:authorize="hasRole('ROLE_EMPLOYEE')" class="text-left">Delete</th>
+            <!--<th class="text-left">INC</th>-->
+            <!--<th class="text-left">Birth Date</th>-->
+            <!--<th class="text-left">Address</th>-->
 
-<footer id="fh5co-footer">
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+        <tr th:each="book:${books}">
+            <td class="text-left" th:text="${book.title}">Title</td>
+            <td class="text-left" th:text="${book.author}">Author</td>
+            <td class="text-left" th:text="${book}">Details</td>
+            <td class="text-left"><img th:src="${book.image}"/></td>
+            <!--<td class="text-left" th:text="${patient.inc}">INC</td>-->
+            <!--<td class="text-left" th:text="${patient.birthDate}">BirthDate</td>-->
+            <!--<td class="text-left" th:text="${patient.address}">Address</td>-->
+            <td sec:authorize="hasRole('ROLE_USER')"><a th:href="@{/user/buy_book(param=${book.id})}">Buy</a></td>
+            <td sec:authorize="hasRole('ROLE_EMPLOYEE')"><a th:href="@{/employee/update_book(param=${book.id})}">Update</a></td>
+            <td sec:authorize="hasRole('ROLE_EMPLOYEE')"><a th:href="@{/employee/delete_book(param=${book.id})}">Delete</a></td>
+        </tr>
+        <!--<input type="hidden" name="book" th:value="${book}"/>-->
+        </tbody>
+    </table>
+</form>
+<!--<div id="fh5co-main">-->
+<!--<div class="container">-->
 
-    <!--<div class="container">-->
-        <!--<div class="row row-padded">-->
-            <!--<div class="col-md-12 text-center">-->
-                <!--<p class="fh5co-social-icons">-->
-                    <!--<a href="#"><i class="icon-twitter"></i></a>-->
-                    <!--<a href="#"><i class="icon-facebook"></i></a>-->
-                    <!--<a href="#"><i class="icon-instagram"></i></a>-->
-                    <!--<a href="#"><i class="icon-dribbble"></i></a>-->
-                    <!--<a href="#"><i class="icon-youtube"></i></a>-->
-                <!--</p>-->
-                <!--<p><small>&copy; Hydrogen Free HTML5 Template. All Rights Reserved. <br>Designed by: <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> | Images by: <a href="http://pexels.com" target="_blank">Pexels</a> </small></p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+<!--<div class="row">-->
+
+<!--<div id="fh5co-board" >-->
+
+<!--<form th:action="@{/home}" th:method="get">-->
+<!--<div >-->
+<!--<div th:each="book:${products}" >-->
+<!--<a th:href="${book.image}" title="da"><img th:src="${book.image}" alt="Free HTML5 Bootstrap template"/></a>-->
+<!--</div>-->
+<!--<div class="fh5co-desc"><a href="/buy">Add to cart</a> </div>-->
+<!--</div>-->
+
+<!--<div th:each="book:${products}" >-->
+<!--<div >-->
+<!--<a th:href="${book.image}" ><img th:src="${book.image}" alt="Free HTML5 Bootstrap template"/></a>-->
+<!--<div class="fh5co-desc"><a href="/buy">Add to cart</a> </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<footer>
+
 </footer>
-
-
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!-- jQuery Easing -->
@@ -320,5 +170,10 @@
 <script src="js/salvattore.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/uisearch.js"></script>
+<script>
+    new UISearch( document.getElementById( 'sb-search' ) );
+</script>
 </body>
 </html>

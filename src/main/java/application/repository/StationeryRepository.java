@@ -4,6 +4,8 @@ import application.entity.Stationery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by Mihnea on 24/05/2017.
  */
@@ -11,6 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StationeryRepository extends JpaRepository<Stationery, Long> {
 
-    Stationery findByBarcode(String barcode);
+    List<Stationery> findByBarcodeOrNameOrType(String barcode, String name, String type);
     Stationery findByName(String name);
 }

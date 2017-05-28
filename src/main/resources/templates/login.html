@@ -39,7 +39,6 @@
                     <input type="password" name="pass" required="required"/>
                 </div>
 
-                <p class="forgot"><a href="#">Forgot Password?</a></p>
 
                 <button class="button button-block">Log In</button>
             </form>
@@ -52,31 +51,52 @@
                 <div class="top-row">
                     <div class="field-wrap">
                         <label>
-                            First Name<span class="req">*</span>
+                            Username<span class="req">*</span>
                         </label>
-                        <input type="text" required="required"/>
+                        <input type="text" name="username" required="required"/>
                     </div>
 
                     <div class="field-wrap">
                         <label>
-                            Last Name<span class="req">*</span>
+                            Password<span class="req">*</span>
                         </label>
-                        <input type="text" required="required" />
+                        <input type="password" name="password" required="required" />
                     </div>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Name<span class="req">*</span>
+                    </label>
+                    <input type="text" name="name" required="required"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        PNC<span class="req">*</span>
+                    </label>
+                    <input type="text" name="pnc" required="required" pattern="[12][0-9]{12}"/>
                 </div>
 
                 <div class="field-wrap">
                     <label>
                         Email Address<span class="req">*</span>
                     </label>
-                    <input type="email" required="required"/>
+                    <input type="email" name="email" required="required"/>
                 </div>
 
                 <div class="field-wrap">
                     <label>
-                        Set A Password<span class="req">*</span>
+                        Phone<span class="req">*</span>
                     </label>
-                    <input type="password" required="required"/>
+                    <input type="text" name="phone" required="required" pattern="[07][0-9]{9}"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Address<span class="req">*</span>
+                    </label>
+                    <input type="text" name="address" required="required"/>
                 </div>
 
                 <button type="submit" class="button button-block">Get Started</button>

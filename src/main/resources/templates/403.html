@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}" type="text/css" href="css/default.css" />
+</head>
+<body>
+<div id="clouds">
+    <div class="cloud x1"></div>
+    <div class="cloud x1_5"></div>
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x4"></div>
+    <div class="cloud x5"></div>
+</div>
+<div class='c'>
+    <div class='_404'>403</div>
+    <hr>
+    <div class='_1'>ACCESS DENIED</div>
+    <div class='_2'>PLEASE GO BACK!</div>
+    <a class='btn' th:href="@{/home}">BACK</a>
+    </hr>
+</div>
+</body>
+</html>
+

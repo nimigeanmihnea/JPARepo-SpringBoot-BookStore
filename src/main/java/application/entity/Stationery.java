@@ -34,6 +34,7 @@ public class Stationery {
     @Column(name = "image")
     private String image;
 
+    public Stationery(){}
     public Stationery(String barcode, String type, String name, int stock, float price, String image) {
         this.barcode = barcode;
         this.type = type;
@@ -88,11 +89,7 @@ public class Stationery {
 
     @Override
     public String toString() {
-        return "Stationery{" +
-                "type='" + type + '\'' +
-                ", name='" + name + '\'' +
-                ", stock=" + stock +
-                ", price=" + price +
-                '}';
+        return "Type='" + type + '\'' +
+                ", Price=" + price;
     }
 }

@@ -32,6 +32,7 @@ public class Details {
     @OneToOne
     private User user;
 
+    public Details(){}
     public Details(String pnc, String name, String email, String phone, String address, User user) {
         this.pnc = pnc;
         this.name = name;

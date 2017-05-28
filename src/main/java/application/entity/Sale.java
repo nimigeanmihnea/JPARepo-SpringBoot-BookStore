@@ -1,6 +1,7 @@
 package application.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,21 +20,32 @@ public class Sale {
     @Column(name = "date", nullable = false)
     private Date date;
 
-    @OneToMany
-    private List<Book> books;
-
     @OneToOne
     private User saledBy;
 
     @OneToOne
     private User saledTo;
 
-    public Sale(Date date, List<Book> books, User saledBy, User saledTo) {
+    @OneToOne
+    private Book book;
+
+    @OneToOne
+    private Stationery stationery;
+
+    @OneToOne
+    private Tea tea;
+
+    public Sale() {}
+
+    public Sale(Date date, User saledBy, User saledTo, Book book, Stationery stationery, Tea tea) {
         this.date = date;
-        this.books = books;
         this.saledBy = saledBy;
         this.saledTo = saledTo;
+        this.book = book;
+        this.stationery = stationery;
+        this.tea = tea;
     }
+
 
     public long getId() {
         return id;
@@ -46,12 +58,6 @@ public class Sale {
     }
     public void setDate(Date date) {
         this.date = date;
-    }
-    public List<Book> getBooks() {
-        return books;
-    }
-    public void setBooks(List<Book> books) {
-        this.books = books;
     }
     public User getSaledBy() {
         return saledBy;

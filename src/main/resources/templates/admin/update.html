@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Update user</title>
+    <link rel="stylesheet" th:href="@{/css/product.css}" href="css/table.css" type="text/css"/>
+</head>
+<body>
+<div class="form-style-5">
+    <form th:action="@{/admin/update}" th:method="get">
+        <fieldset>
+            <legend><span class="number">1</span> User Info</legend>
+            <input type="text" name="title" th:value="${user.pnc}" placeholder="Title *" readonly="readonly"/>
+            <input type="text" name="author" th:value="${user.name}" placeholder="Author *" readonly="readonly"/>
+        </fieldset>
+    </form>
+    <form th:action="@{/admin/update}" th:method="post">
+        <fieldset>
+            <legend><span class="number">2</span>Update info</legend>
+            <input type="text" name="name" th:value="${user.name}" placeholder="Name *" required="required"/>
+            <input type="email" name="email" th:value="${user.email}" placeholder="Email *" required="required"/>
+            <input type="text" name="phone" th:value="${user.phone}" placeholder="Phone *" required="required"/>
+            <input type="text" name="address" th:value="${user.address}" placeholder="Address *" required="required"/>
+            <input type="hidden" name="id" th:value="${user.id}"/>
+            <input type="submit" value="Apply" />
+        </fieldset>
+    </form>
+</div>
+<script src="js/edit.js"></script>
+</body>
+</html>

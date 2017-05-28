@@ -30,8 +30,11 @@ public class SecureLogin extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().disable();
         httpSecurity.authorizeRequests().antMatchers("/", "/resources/**", "/templates/**", "/static/**",
                 "/css/**", "/js/**").permitAll()
-                .antMatchers("/admin/*","/admin").hasRole("ADMIN")
+                .antMatchers("/admin/*").hasRole("ADMIN")
+                .antMatchers("/employee/*").hasRole("EMPLOYEE")
+                .antMatchers("/user/*").hasRole("USER")
                 .antMatchers("/login").permitAll()
+                .antMatchers("/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/home")

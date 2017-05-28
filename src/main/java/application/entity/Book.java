@@ -47,6 +47,7 @@ public class Book {
     @Column(name = "image")
     private String image;
 
+    public Book(){}
     public Book(String isbn, String title, String author, String genre, String format, int pages, String publisher, int stock, float price) {
         this.isbn = isbn;
         this.title = title;
@@ -129,15 +130,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "isbn='" + isbn + '\'' +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", format='" + format + '\'' +
-                ", pages=" + pages +
-                ", publisher='" + publisher + '\'' +
-                ", stock=" + stock +
-                ", price=" + price +
-                '}';
+        return "ISBN='" + isbn + '\'' +
+                ", Genre='"+genre+'\''+
+                ", Format='" + format + '\'' +
+                ", Pages=" + pages +
+                ", Publisher='" + publisher + '\'' +
+                ", Price=" + price ;
     }
 }

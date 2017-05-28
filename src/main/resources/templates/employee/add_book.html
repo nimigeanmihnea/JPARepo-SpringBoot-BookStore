@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add book</title>
+    <link rel="stylesheet" th:href="@{/css/product.css}" href="css/table.css" type="text/css"/>
+</head>
+<body>
+<div class="form-style-5">
+    <form th:action="@{/employee/add_book}" th:method="post">
+        <fieldset>
+            <legend><span class="number">1</span> Book Info</legend>
+            <input type="text" name="isbn" placeholder="ISBN *" required="required"/>
+            <input type="text" name="title" placeholder="Title *" required="required"/>
+            <input type="text" name="author" placeholder="Author *" required="required"/>
+            <input type="text" name="genre" placeholder="Genre *" required="required"/>
+            <input type="text" name="format" placeholder="Format *" required="required"/>
+            <input type="text" name="pub" placeholder="Publisher *" required="required"/>
+            <input type="text" name="image" placeholder="Image (name.ext) *" required="required"/>
+            <input type="text" name="pages" placeholder="Pages *" required="required" pattern="[0-9]+"/>
+            <input type="text" name="stock" placeholder="Stock *"  required="required" pattern="[0-9]+"/>
+            <input type="text" name="price" placeholder="Price *"  required="required" pattern="[+-]?([0-9]*[.])?[0-9]+"/>
+            <input type="submit" value="Apply" />
+        </fieldset>
+    </form>
+</div>
+<script src="js/edit.js"></script>
+</body>
+</html>

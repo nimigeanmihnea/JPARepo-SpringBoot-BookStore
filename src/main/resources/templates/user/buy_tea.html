@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Update tea</title>
+    <link rel="stylesheet" th:href="@{/css/product.css}" href="css/table.css" type="text/css"/>
+</head>
+<body>
+<div class="form-style-5">
+    <form th:action="@{/user/buy_tea}" th:method="get">
+        <fieldset>
+            <legend><span class="number">1</span> Tea Info</legend>
+            <input type="text" name="title" th:value="${tea.name}" placeholder="Title *" readonly="readonly"/>
+            <input type="text" name="author" th:value="${tea.type}" placeholder="Author *" readonly="readonly"/>
+        </fieldset>
+    </form>
+    <form th:action="@{/user/buy_tea}" th:method="post">
+        <fieldset>
+            <legend><span class="number">2</span>Update info</legend>
+            <input type="text" name="q" placeholder="Quantity *" required="required" pattern="[0-9]+"/>
+            <input type="hidden" name="id" th:value="${tea.id}"/>
+            <input type="submit" value="Apply" />
+        </fieldset>
+    </form>
+</div>
+<script src="js/edit.js"></script>
+</body>
+</html>
